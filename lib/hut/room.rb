@@ -18,13 +18,13 @@ module Hut
 
     def listen
       @room.listen do |msg|
-        add_message msg.body
+        add_message msg
       end
     end
 
-    def add_message(text)
-      if text
-        @messages << text
+    def add_message(msg)
+      if msg.body
+        @messages << msg
         @window.room_was_updated(self) if @window
       end
     end
@@ -37,7 +37,7 @@ module Hut
       # Room#recent calls Time.parse
       require 'time'
       @room.recent.each do |msg|
-        add_message msg.body
+        add_message msg
       end
     end
   end

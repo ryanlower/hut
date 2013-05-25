@@ -17,7 +17,7 @@ module Hut
       clear
       print_header
       @room.last_messages(@lines - 4).each do |msg|
-        @out.print "#{msg}\n"
+        @out.print "#{msg.user.name}: #{msg.body}\n"
       end
       @out.flush
       print_footer
