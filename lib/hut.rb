@@ -1,5 +1,6 @@
 require 'hut/config'
 require 'hut/cli'
+require "hut/input"
 require "hut/message"
 require "hut/room"
 require "hut/window"

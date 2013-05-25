@@ -23,6 +23,10 @@ module Hut
       end
     end
 
+    def new_message(body)
+      @room.speak body
+    end
+
     def add_message(msg)
       if msg.body
         @messages << @hut.new_message(self, msg)

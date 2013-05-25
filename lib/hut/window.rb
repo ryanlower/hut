@@ -3,9 +3,10 @@ module Hut
     require 'highline'
 
     def initialize(hut)
-      @out = STDOUT
+      @out = $stdout
       @columns, @lines = HighLine::SystemExtensions.terminal_size
       @room = nil
+      @input = Input.new self
     end
 
     def room=(room)
@@ -27,6 +28,10 @@ module Hut
       if room == @room
         update
       end
+    end
+
+    def new_message(body)
+      @room.new_message body
     end
 
     private
