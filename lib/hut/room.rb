@@ -25,7 +25,7 @@ module Hut
 
     def add_message(msg)
       if msg.body
-        @messages << @hut.new_message(msg)
+        @messages << @hut.new_message(self, msg)
         @window.room_was_updated(self) if @window
       end
     end

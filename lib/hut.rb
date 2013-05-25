@@ -21,14 +21,18 @@ module Hut
       @campfire ||= Tinder::Campfire.new @config.account, token: @config.token
     end
 
+    def me
+      @me ||= campfire.me
+    end
+
     def listen
       @window.room = @room
       @room.window = @window
       @room.listen
     end
 
-    def new_message(msg)
-      Message.new self, msg
+    def new_message(room, msg)
+      Message.new self, room, msg
     end
   end
 end
