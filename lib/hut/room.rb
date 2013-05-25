@@ -1,6 +1,8 @@
 module Hut
   class Room
 
+    attr_reader :name
+
     def initialize(campfire, room_name)
       @name = room_name
       @room = campfire.rooms.select do |room|

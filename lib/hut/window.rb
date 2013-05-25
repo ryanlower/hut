@@ -16,7 +16,7 @@ module Hut
     def update
       clear
       print_header
-      @room.last_messages(10).each do |msg|
+      @room.last_messages(@lines - 4).each do |msg|
         @out.print "#{msg}\n"
       end
       @out.flush
@@ -36,7 +36,7 @@ module Hut
       end
 
       def print_header
-        @out.print "header\n"
+        @out.print "#{@room.name}\n"
         @out.print "#{'-' * @columns}\n"
         @out.flush
       end
