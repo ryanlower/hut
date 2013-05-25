@@ -2,7 +2,7 @@ module Hut
   class Window
     require 'highline'
 
-    def initialize
+    def initialize(hut)
       @out = STDOUT
       @columns, @lines = HighLine::SystemExtensions.terminal_size
       @room = nil
@@ -17,7 +17,7 @@ module Hut
       clear
       print_header
       @room.last_messages(@lines - 4).each do |msg|
-        @out.print "#{msg.user.name}: #{msg.body}\n"
+        @out.print "#{msg.formatted_for_print}\n"
       end
       @out.flush
       print_footer

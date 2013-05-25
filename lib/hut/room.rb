@@ -3,9 +3,10 @@ module Hut
 
     attr_reader :name
 
-    def initialize(campfire, room_name)
+    def initialize(hut, room_name)
+      @hut = hut
       @name = room_name
-      @room = campfire.rooms.select do |room|
+      @room = @hut.campfire.rooms.select do |room|
         room.name.downcase == room_name
       end.first
       @messages = []
@@ -24,7 +25,7 @@ module Hut
 
     def add_message(msg)
       if msg.body
-        @messages << msg
+        @messages << @hut.new_message(msg)
         @window.room_was_updated(self) if @window
       end
     end
