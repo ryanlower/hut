@@ -7,6 +7,7 @@ module Hut
         room.name.downcase == room_name
       end.first
       @messages = []
+      get_recent_messages
     end
 
     def window=(window)
@@ -20,12 +21,22 @@ module Hut
     end
 
     def add_message(text)
-      @messages << text
-      @window.room_was_updated self
+      if text
+        @messages << text
+        @window.room_was_updated(self) if @window
+      end
     end
 
     def last_messages(num)
       @messages.last(num)
+    end
+
+    def get_recent_messages
+      # Room#recent calls Time.parse
+      require 'time'
+      @room.recent.each do |msg|
+        add_message msg.body
+      end
     end
   end
 end
