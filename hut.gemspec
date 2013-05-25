@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Hut::VERSION
   spec.authors       = ["Ryan Lower"]
   spec.email         = ["rpjlower@gmail.com"]
-  spec.description   = %q{Write a gem description}
-  spec.summary       = %q{Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Terminal campfire client}
+  spec.summary       = %q{Terminal campfire client}
+  spec.homepage      = "https://github.com/ryanlower/hut"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

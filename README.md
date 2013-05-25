@@ -1,6 +1,6 @@
 # Hut
 
-TODO: Write a gem description
+Terminal campfire client
 
 ## Installation
 
