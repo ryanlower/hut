@@ -14,7 +14,7 @@ module Hut
     def initialize
       @config = Config.new
       @window = Window.new self
-      @room = Room.new self, 'test'
+      @room = Room.new self, @config.rooms.first
     end
 
     def campfire

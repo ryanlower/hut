@@ -23,5 +23,9 @@ module Hut
     def token
       @config[:token]
     end
+
+    def rooms
+      @config[:rooms]
+    end
   end
 end
